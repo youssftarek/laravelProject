@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('pageName') Posts Page @endsection
-@section('posts')
-      <table class="table table-hover">
+@section('content')
+    <div class="text-center">
+        <button type="button" class="btn btn-success mt-3 btn-lg">Create Post</button>
+    </div>
+    <table class="table table-hover mt-5">
         <thead>
           <tr>
             <th scope="col">#</th>
