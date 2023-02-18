@@ -2,9 +2,9 @@
 @section('pageName') Posts Page @endsection
 @section('content')
     <div class="text-center">
-        <button type="button" class="btn btn-success mt-3 btn-lg">Create Post</button>
+        <a href="{{ route('posts.create') }}" class="mt-3 btn btn-success">Create Post</a>
     </div>
-    <table class="table table-hover mt-5">
+    <table class="table table-hover mt-3">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -20,9 +20,10 @@
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
-            <td><button type="button" class="btn btn-info">View</button>
-                <button type="button" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+            <td>
+                <a href="{{ route('posts.show',['post'=> '1']) }}" class="btn btn-info">View</a>
+                <a href="" class="btn btn-primary">Edit</a>
+                <a href="" class="btn btn-danger">Delete</a>
             </td>
           </tr>
         </tbody>
