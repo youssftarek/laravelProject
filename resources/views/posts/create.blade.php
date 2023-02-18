@@ -12,7 +12,7 @@
     <div class="form-group">
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Description</label>
-          <textarea name= "descriptiopn" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea name= "description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
       <label for="exampleFormControlSelect1">Post Creator</label>
       <select name= "post_creator" class="form-control" id="exampleFormControlSelect1">

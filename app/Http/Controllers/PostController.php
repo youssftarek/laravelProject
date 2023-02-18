@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
@@ -16,8 +18,11 @@ class PostController extends Controller
         return view('posts.create');
     }
     public function store(){
-        $requestData = request()->all();
-        dd($requestData);
-        return 'store';
+        $requestData = request();
+        Post::create([
+            'title'=> $requestData['title'],
+            'description' => $requestData['description'],
+        ]);
+        return redirect()->route('posts.index');
     }
 }
