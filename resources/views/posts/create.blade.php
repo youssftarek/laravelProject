@@ -14,10 +14,14 @@
           <label for="exampleFormControlTextarea1">Description</label>
           <textarea name= "description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-      <div class="form-group">
+    <div class="form-group">
         <label for="exampleFormControlInput1">Posted By</label>
-        <input name= "posted_by" type="text" class="form-control" id="exampleFormControlInput1">
-      </div>
+        <select name="posted_by" class="form-control">
+            @foreach ($users as $user)
+            <option value="{{$user->id}}">{{$user->name}}</option>
+            @endforeach
+        </select>
+    </div>
     </div>
     <div class="text-center">
         <button type="submit" class="btn btn-success ">Create</button>

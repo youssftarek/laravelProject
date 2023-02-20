@@ -19,7 +19,7 @@
           <tr>
             <td>{{$post->id}}</td>
             <td>{{$post->title}}</td>
-            <td>{{$post->posted_by}}</td>
+            <td></td>
             <td>{{$post->created_at}}</td>
             <td>
                 <a href="{{ route('posts.show',$post->id) }}" class="btn btn-info">View</a>
