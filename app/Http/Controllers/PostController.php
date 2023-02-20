@@ -13,8 +13,9 @@ class PostController extends Controller
         $postCollection = Post::all();
         return view('posts.index', ['postCollectionView'=>$postCollection]);
     }
-    public function show(){
-        return view('posts.show');
+    public function show($id){
+        $post = Post::findOrFail($id);
+        return view('posts.show', compact('post'));
     }
     public function create(){
         return view('posts.create');
@@ -24,6 +25,7 @@ class PostController extends Controller
         Post::create([
             'title'=> $requestData['title'],
             'description' => $requestData['description'],
+            'posted_by' => $requestData['posted_by'],
         ]);
         return redirect()->route('posts.index');
     }

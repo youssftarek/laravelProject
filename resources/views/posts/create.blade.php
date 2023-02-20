@@ -14,10 +14,10 @@
           <label for="exampleFormControlTextarea1">Description</label>
           <textarea name= "description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-      <label for="exampleFormControlSelect1">Post Creator</label>
-      <select name= "post_creator" class="form-control" id="exampleFormControlSelect1">
-        <option value="1">Ahmed</option>
-      </select>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Posted By</label>
+        <input name= "posted_by" type="text" class="form-control" id="exampleFormControlInput1">
+      </div>
     </div>
     <div class="text-center">
         <button type="submit" class="btn btn-success ">Create</button>
