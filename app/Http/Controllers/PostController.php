@@ -29,4 +29,16 @@ class PostController extends Controller
         ]);
         return redirect()->route('posts.index');
     }
+    public function destroy($id){
+        $post = Post::findOrFail($id);
+        $post ->delete();
+        return back();
+    }
+    public function edit($id){
+        $post = Post::findOrFail($id);
+        return view('posts.edit', compact('post'));
+    }
+    public function update(){
+
+    }
 }

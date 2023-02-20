@@ -22,9 +22,13 @@
             <td>{{$post->posted_by}}</td>
             <td>{{$post->created_at}}</td>
             <td>
-                <a href="{{ route('posts.show',['post'=> $post->id]) }}" class="btn btn-info">View</a>
+                <a href="{{ route('posts.show',$post->id) }}" class="btn btn-info">View</a>
                 <a href="" class="btn btn-primary">Edit</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                <form action="{{ url('/posts', $post->id) }}" method="post">
+                    <input class="btn btn-danger" type="submit" value="Delete" />
+                    @method('delete')
+                    @csrf
+                </form>
             </td>
           </tr>
           @endforeach
