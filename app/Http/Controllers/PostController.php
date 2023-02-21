@@ -28,12 +28,12 @@ class PostController extends Controller
     }
 
 
-    public function store(){
-        $requestData = request()->all();
+    public function store(Request $requestObj){
+        $requestData = $requestObj->all();
         Post::create([
-            'title'=> $requestData['title'],
-            'description' => $requestData['description'],
-            'user_id'=> $requestData['posted_by'],
+            'title'=> $requestObj->title,
+            'description' => $requestObj->description,
+            'user_id'=> $requestObj->posted_by,
         ]);
         return redirect()->route('posts.index');
     }
