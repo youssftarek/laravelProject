@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\StorePostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Redirect;
 use Termwind\Components\Dd;
+
 
 class PostController extends Controller
 {
@@ -25,24 +26,7 @@ class PostController extends Controller
         return view('posts.create', ['users' => $users]);
     }
 
-    public function store(Request $requestObj){
-        $requestData = $requestObj->all();
-
-        //validation
-        $requestObj -> validate([
-            'title' => 'required|min:3',
-            'description' => 'required|min:10',
-            'posted_by' => 'required|exists:users,id',
-        ],[
-            'title.required' => 'Title is required',
-            'title.min' => 'Title must be at least 3 characters',
-            'description.required' => 'Description is required',
-            'description.min' => 'Description must be at least 10 characters',
-            'posted_by.required' => 'User is required',
-            'posted_by.exists' => 'User does not exist',
-        ]
-        );
-
+    public function store(StorePostRequest $requestObj){
         Post::create([
             'title'=> $requestObj->title,
             'description' => $requestObj->description,
