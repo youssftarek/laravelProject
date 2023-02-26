@@ -1,7 +1,8 @@
 <?php
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +25,7 @@ Route::delete('posts/{post}', [PostController::class,'destroy'])->withTrashed()-
 Route::get('posts/{post}/edit', [PostController::class,'edit']) -> name('posts.edit');
 Route::put('posts/{post}', [PostController::class,'update']) -> name('posts.update');
 
+
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
