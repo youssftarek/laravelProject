@@ -6,7 +6,7 @@
     </div>
     <table class="table table-hover mt-3">
         <thead>
-          <tr>
+          <tr class="text-center">
             <th scope="col">#</th>
             <th scope="col">Title</th>
             <th scope="col">Posted By</th>
@@ -16,15 +16,16 @@
         </thead>
         <tbody>
             @foreach ($postCollectionView as $post)
-          <tr>
+          <tr class="text-center">
             <td>{{$post->id}}</td>
             <td>{{$post->title}}</td>
             <td>{{$post->user ? $post->user->name : 'Not found'}}</td>
             <td>{{$post->created_at}}</td>
             <td>
-                <a href="{{ route('posts.show',$post->id) }}" class="btn btn-info">View</a>
-                <a href="" class="btn btn-primary">Edit</a>
+
                 <form action="{{ url('/posts', $post->id) }}" method="post">
+                    <a href="{{ route('posts.show',$post->id) }}" class="btn btn-info">View</a>
+                    <a href="" class="btn btn-primary">Edit</a>
                     <input class="btn btn-danger" type="submit" value="Delete" />
                     @method('delete')
                     @csrf
