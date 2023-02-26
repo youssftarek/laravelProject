@@ -16,7 +16,7 @@
     <div class="card-header">Post Creator Information</div>
     <div class="card-body">
 
-        <h5 class="card-title">{{$post->posted_by}}</h5>
+        <h5 class="card-title">{{$post->user->name}}</h5>
         <p class="card-text">Created at: {{$post->created_at}}</p>
 
     </div>
